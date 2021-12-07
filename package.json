@@ -1,0 +1,25 @@
+{
+  "name": "my.becoffe",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AubryFranquinet/my.becoffe.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AubryFranquinet/my.becoffe/issues"
+  },
+  "homepage": "https://github.com/AubryFranquinet/my.becoffe#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "eslint": "^8.4.1"
+  }
+}
