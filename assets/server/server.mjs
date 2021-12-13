@@ -1,4 +1,3 @@
-// require("dotenv").config();
 import dotenv from "dotenv";
 dotenv.config();
 
@@ -18,7 +17,7 @@ app.use(express.urlencoded({ extended: true }));
 // This function will be called everytime we make a request to the server (It will log the requested url in the terminal)
 app.use((req, res, next) => {
   console.log(req.url);
-  next(); // next() is needed becaus .use is a MIDDLEWARE ?
+  next();
 });
 
 //------------ ROUTER ------------
@@ -34,8 +33,11 @@ app.get("/get-all-recettes", async (req, res, next) => {
 // ADD RECETTE TO TABLE "recette"
 app.post("/add-recette", async (req, res, next) => {
   const { topicName, recetteDate, learnerName } = req.body;
-  const recette = await addRecette(topicName, recetteDate, learnerName);
-  return res.send(recette);
+  if (topicName !== "" && learnerName !== "") {
+    const recette = await addRecette(topicName, recetteDate, learnerName);
+    return res.send(recette);
+  } else
+    return console.log("data not add to db: html input error, user fault :)");
 });
 
 // ------------ LISTENER ------------

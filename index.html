@@ -5,14 +5,39 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>MyBeCoffe | Recettes</title>
+    <link rel="stylesheet" href="./frontend/styles/style.css">
   </head>
   <body>
-    <form action=/add-recette method="post">
-      <input id="inputTopic" type="text" placeholder="Topic name" />
-      <input id="inputLearner" type="text" placeholder="Learner name" />
-      <input id="inputDate" type="date" />
-      <input id="submitBtn" type="submit" value="Send" />
-    </form>
+
+    <aside>
+      <form id="postRecetteForm" class="hidden" action=/add-recette method="post">
+        <input id="inputTopic" type="text" placeholder="Topic name" />
+        <input id="inputLearner" type="text" placeholder="Learner name" />
+        <span id="dateUI"></span>
+        <input id="submitBtn" type="submit" value="Send" />
+        <button id="cancelBtn">cancel</button>
+      </form>
+    </aside>
+
+    <main>
+      <section id="calendarHeader">
+        <p><span id="spanMonth"></span> <span id="spanYear"></span></p>
+        <button id="prevMonthBtn">Prev</button>
+        <button id="nextMonthBtn">Next</button>
+      </section>
+
+      <section id="weekdays">
+        <p>Monday</p>
+        <p>Tuesday</p>
+        <p>Wednesday</p>
+        <p>Thursday</p>
+        <p>Friday</p>
+        <p>Saturday</p>
+        <p>Sunday</p>
+      </section>
+      
+      <section id="calendar"></section>
+    </main>
 
     <script type="module" src="./frontend/javascript/app.js"></script>
   </body>
