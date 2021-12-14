@@ -4,7 +4,7 @@ dotenv.config();
 import express from "express";
 import cors from "cors";
 
-import { getRecettes, addRecette } from "./index.mjs";
+import { getRecettes, addRecette } from "./functionsRecette.mjs";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
