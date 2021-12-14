@@ -4,6 +4,7 @@
   "description": "",
   "scripts": {
     "devStart": "nodemon ./assets/server/serverRecette.mjs",
+    "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node assets/server/db/server.mjs"
   },
   "repository": {
