@@ -3,8 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "devStart": "nodemon ./assets/server/server.mjs"
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "devStart": "nodemon ./assets/server/server.mjs",
     "start": "node assets/server/db/server.mjs"
   },
   "repository": {
@@ -22,7 +21,6 @@
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
     "nodemon": "^2.0.15",
-    "express": "^4.17.1",
     "pg": "^8.7.1"
   },
   "devDependencies": {
