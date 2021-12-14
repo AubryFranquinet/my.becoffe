@@ -2,14 +2,19 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  outline: none;
   cursor: default;
 }
+
+input[type="text"] {
+  cursor: text;
+}
+
 .calendarTile,
 button,
-input {
+input[type="submit"] {
   cursor: pointer;
 }
+
 div {
   text-align: center;
   height: 80px;

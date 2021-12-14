@@ -2,17 +2,17 @@ let monthIndex = 0;
 let dataFetched = [];
 let dateToPost = "";
 
+const inputTopic = document.getElementById("inputTopic");
+const inputLearner = document.getElementById("inputLearner");
+const dateUI = document.getElementById("dateUI");
+const submitBtn = document.getElementById("submitBtn");
+const cancelBtn = document.getElementById("cancelBtn");
+
 const calendar = document.getElementById("calendar");
 const spanMonth = document.getElementById("spanMonth");
 const spanYear = document.getElementById("spanYear");
 const prevMonthBtn = document.getElementById("prevMonthBtn");
 const nextMonthBtn = document.getElementById("nextMonthBtn");
-
-const inputTopic = document.querySelector("#inputTopic");
-const inputLearner = document.querySelector("#inputLearner");
-const dateUI = document.getElementById("dateUI");
-const submitBtn = document.querySelector("#submitBtn");
-const cancelBtn = document.querySelector("#cancelBtn");
 
 // ------------ FUNCTIONS ------------
 // --- FETCH GET DATA RECETTES ---
@@ -27,14 +27,11 @@ const fetchGetRecettes = async () => {
 const createCalendar = () => {
   calendar.innerHTML = "";
 
+  // CREATE & SETUP DATE
   const currentDate = new Date();
-  // console.log(currentDate);
   currentDate.setMonth(currentDate.getMonth() + monthIndex);
-  // console.log(currentDate);
-  const day = currentDate.getDate();
   const month = currentDate.getMonth();
   const year = currentDate.getFullYear();
-  // console.log(day, month, year);
 
   // SPANS MONTH & YEAR
   spanYear.textContent = year;
@@ -70,7 +67,10 @@ const createCalendar = () => {
   document.querySelectorAll(".calendarTile").forEach((day) => {
     day.addEventListener("click", (e) => {
       if (e.target.textContent.length > 2) {
-        console.log("Affiche fenetre avec les infos de cette recette");
+        alert(
+          "There is already a recipe planned for this date, please choose another one"
+        );
+        cancelForm();
       } else {
         dateToPost = `${year}-${month + 1}-${e.target.textContent}`;
         dateUI.textContent = `${e.target.textContent}/${month + 1}/${year}`;
@@ -86,6 +86,13 @@ const initialisation = async () => {
   createCalendar();
 };
 initialisation();
+
+// CANCEL POST FORM
+const cancelForm = () => {
+  document.getElementById("postRecetteForm").classList.add("hidden");
+  inputLearner.value = "";
+  inputTopic.value = "";
+};
 
 // ------------ EVENTS LISTENERS ------------
 // MONTHS NAV BTNS
@@ -119,10 +126,8 @@ submitBtn.addEventListener("click", async (e) => {
       })
       .catch((err) => console.log(err));
 
+    cancelForm();
     initialisation();
-    document.getElementById("postRecetteForm").classList.add("hidden");
-    inputLearner.value = "";
-    inputTopic.value = "";
   } else {
     alert("Please complete all fields");
   }
@@ -131,7 +136,5 @@ submitBtn.addEventListener("click", async (e) => {
 // CANCEL BTN
 cancelBtn.addEventListener("click", (e) => {
   e.preventDefault();
-  document.getElementById("postRecetteForm").classList.add("hidden");
-  inputLearner.value = "";
-  inputTopic.value = "";
+  cancelForm();
 });
