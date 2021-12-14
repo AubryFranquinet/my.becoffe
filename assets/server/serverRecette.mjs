@@ -37,7 +37,7 @@ app.post("/add-recette", async (req, res, next) => {
     const recette = await addRecette(topicName, recetteDate, learnerName);
     return res.send(recette);
   } else
-    return console.log("data not add to db: html input error, user fault :)");
+    return console.log("data not added to database: html input error, user fault :)");
 });
 
 // ------------ LISTENER ------------

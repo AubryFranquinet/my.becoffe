@@ -10,6 +10,7 @@ const infoDB = {
   ssl: {
     rejectUnauthorized: false,
   },
+  
 };
 
 // ------------ FUNCTIONS ------------
