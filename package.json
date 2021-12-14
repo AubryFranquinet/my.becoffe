@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "scripts": {
-    "devStart": "nodemon ./assets/server/server.mjs",
+    "devStart": "nodemon ./assets/server/serverRecette.mjs",
     "start": "node assets/server/db/server.mjs"
   },
   "repository": {
