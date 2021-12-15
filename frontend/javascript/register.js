@@ -23,17 +23,18 @@ submitBtn.addEventListener("click", async (e) => {
     e.preventDefault();
     console.log("submit btn clicked");
     if (inputFirstName.value !== "" && inputLastName.value !== "" && inputEmail.value !== "" && inputPassword.value !== "" && inputConfirmPassword.value !== "" && inputDiscord.value !== "") {
-        await fetch(`https://localhost:3555/register`, {
+        await fetch(`http://localhost:3555/register`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
             },
             body: JSON.stringify({
-                firstName: inputFirstName.value,
-                lastName: inputLastName.value,
-                email: inputEmail.value,
-                password: inputPassword.value,
-                discord: inputDiscord.value,
+                "email": inputEmail.value,
+                "password": inputPassword.value,
+                "first_name": inputFirstName.value,
+                "last_name": inputLastName.value,
+                "account_type": "Apprenant",
+                "discord": inputDiscord.value,
             }),
         })
             .then(() => {
