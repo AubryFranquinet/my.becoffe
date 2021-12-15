@@ -5,6 +5,7 @@ dotenv.config();
 import pg from "pg";
 const { Client } = pg;
 
+// Vérifier la presénce de votre fichier .env avec les identifiants
 const infoDB = {
   connectionString: process.env.URI,
   ssl: {
