@@ -1,0 +1,52 @@
+body{
+    
+    padding-left: 450px;
+    margin-top: 150px;
+
+}
+
+form{
+
+    border: black 2px solid;
+    width: 500px;
+    height: 500px;
+
+}
+
+hr{
+
+    margin-bottom: 20px;
+
+}
+
+.headformulaire{
+
+    text-align: center;
+
+}
+
+.formulaire{
+
+    margin-left: 50px;
+
+}
+
+input[type="text"], input[type="password"]{
+
+    margin-top: 10px;
+    width: 200px;
+
+}
+
+input[type="checkbox"]{
+
+    margin-top: 20px;
+
+}
+
+.lowformulaire{
+
+    text-align: center;
+
+}
+
