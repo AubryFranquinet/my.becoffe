@@ -4,7 +4,7 @@ dotenv.config();
 import express from "express";
 import cors from "cors";
 
-import { getRecettes, addRecette } from "./functionsRecette.mjs";
+import { getRecettes, addRecette, addUser, getUsers } from "./functionsRecette.mjs";
 
 const PORT = process.env.PORT || 5000;
 const app = express();
@@ -38,6 +38,23 @@ app.post("/add-recette", async (req, res, next) => {
     return res.send(recette);
   } else
     return console.log("data not added to database: html input error, user fault :)");
+});
+
+
+// GET ALL USERSFROM "User"
+app.get("/get-users", async (req, res, next) => {
+    const test = await getUsers();
+    return res.send(test);
+});
+
+// ADD USER
+app.post("/register", async (req, res, next) => {
+    const { first_name, last_name, email, password, account_type, discord } = req.body;
+    if (first_name !== "" && last_name !== "" && email !== "" && password !== "" && account_type !== "" && discord !== "") {
+        const user = await addUser(first_name, last_name, email, password, account_type, discord);
+        return res.send(user);
+    } else
+        return console.log("data not added to database: html input error, user fault :)");
 });
 
 // ------------ LISTENER ------------

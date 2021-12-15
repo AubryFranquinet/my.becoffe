@@ -1,3 +1,5 @@
+let dataFetched = [];
+
 const inputFirstName = document.getElementById("firstName");
 const inputLastName = document.getElementById("lastName");
 const inputEmail = document.getElementById("email");
@@ -8,12 +10,18 @@ const inputDiscord = document.getElementById("discord");
 const submitBtn = document.getElementById("submit");
 const cancelBtn = document.getElementById("cancel");
 
-
+// --- FETCH GET DATA USERS ---
+const fetchGetRecettes = async () => {
+    await fetch("http://localhost:3555/get-users")
+        .then((res) => res.json())
+        .then((res) => (dataFetched = [...res]));
+    console.log(dataFetched);
+};
 
 // SUBMIT BTN : FETCH POST REGISTER
 submitBtn.addEventListener("click", async (e) => {
     e.preventDefault();
-
+    console.log("submit btn clicked");
     if (inputFirstName.value !== "" && inputLastName.value !== "" && inputEmail.value !== "" && inputPassword.value !== "" && inputConfirmPassword.value !== "" && inputDiscord.value !== "") {
         await fetch(`https://localhost:3555/register`, {
             method: "POST",
